@@ -42,4 +42,3 @@ class DB:
         new_order = json.dumps(data, indent=4)
         with open("data/order.json", "w") as f:
             f.write(new_order)
-        pass

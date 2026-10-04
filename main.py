@@ -1,7 +1,7 @@
-import json
+
 from fastapi import FastAPI, Request
 from starlette.staticfiles import StaticFiles
-from starlette.templating import Jinja2Templates
+from fastapi.templating import Jinja2Templates
 
 from db import DB
 
@@ -17,7 +17,7 @@ async def welcome(request: Request):
         "request": request,
         "categories": categories
     }
-    return templates.TemplateResponse("index.html", ctx)
+    return templates.TemplateResponse(request=request, name="index.html", context={"id": id})
 
 @app.get("/cart")
 async def welcome(request: Request):
@@ -42,7 +42,7 @@ async def welcome(request: Request):
         "cart": cart,
         "total": total
     }
-    return templates.TemplateResponse("cart.html", ctx)
+    return templates.TemplateResponse(request=request, name="cart.html", context=ctx)
 
 
 @app.get("/menu/{category}")
@@ -55,7 +55,7 @@ async def list_category(request: Request, category: str):
         "submenues": submenues,
         "categories": categories
     }
-    return templates.TemplateResponse("menu.html", x)
+    return templates.TemplateResponse(request=request, name="menu.html", context=ctx)
 
 
 @app.put("/update_order")

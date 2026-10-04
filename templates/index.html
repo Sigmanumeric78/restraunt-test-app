@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>Item Details</title>
     <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
@@ -13,13 +14,13 @@
                 {% for category in categories %}
                     <li><a href="/menu/{{category}}">{{category}}</a></li>
                 {% endfor %}
-                <a href="/cart"><i class="fa fa-shopping-cart fa-2x"></i></a>
+                <li><a href="/cart"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
             </ul>
         </div>
     </nav>
 <div class="text-box">
-    <h1>Welcome to your favourite pizza place!</h1>
-    <p>Place your order and fresh pizza will be on your doorstep in 30min.</p>
+    <h1>Welcome to your favourite restaurant!</h1>
+    <p>Place your order and fresh food will be on your tables in 30min.</p>
 </div>
 </section>
 </body>
